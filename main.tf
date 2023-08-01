@@ -10,9 +10,11 @@ resource "null_resource" "test5" {}
 resource "null_resource" "test6" {}
 resource "null_resource" "test7" {}
 
+variable "website" {}
+
 check "health_check" {
   data "http" "terraform_io" {
-    url = "https://www.terraform.io"
+    url = var.website
   }
 
   assert {
@@ -21,14 +23,4 @@ check "health_check" {
   }
 }
 
-check "health_check2" {
-  data "http" "terraform_iopatrick" {
-    url = "https://www.terraformpatrick.io"
-  }
-
-  assert {
-    condition = data.http.terraform_iopatrick.status_code == 200
-    error_message = "${data.http.terraform_iopatrick.url} returned an unhealthy status code"
-  }
-}
 
