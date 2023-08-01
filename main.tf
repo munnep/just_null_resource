@@ -11,7 +11,7 @@ resource "null_resource" "test6" {}
 resource "null_resource" "test7" {}
 
 variable "website" {}
-
+# comment
 check "health_check" {
   data "http" "terraform_io" {
     url = var.website
