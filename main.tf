@@ -22,7 +22,7 @@ check "health_check" {
 }
 
 check "health_check2" {
-  data "http" "terraform_io" {
+  data "http" "terraform_iopatrick" {
     url = "https://www.terraformpatrick.io"
   }
 
