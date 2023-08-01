@@ -20,3 +20,15 @@ check "health_check" {
     error_message = "${data.http.terraform_io.url} returned an unhealthy status code"
   }
 }
+
+check "health_check2" {
+  data "http" "terraform_io" {
+    url = "https://www.terraformpatrick.io"
+  }
+
+  assert {
+    condition = data.http.terraform_io.status_code == 200
+    error_message = "${data.http.terraform_io.url} returned an unhealthy status code"
+  }
+}
+
