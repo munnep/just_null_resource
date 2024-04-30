@@ -2,3 +2,4 @@
 resource "null_resource" "previous" {}
 
 
+resource "null_resource" "previous2" {}
